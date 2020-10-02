@@ -41,6 +41,11 @@ return inquirer
         message: "Give explicit instructions on how to run all necessary tests (explain libraries, and supply all necessary commands):",
         name:"tests"
     },
+    {
+        type:"input",
+        message: "Any questions:",
+        name:"questions"
+    },
   ]);
 }
   
