@@ -51,8 +51,45 @@ inquirer
         name:"tests"
     }
   ])
-  .then(function(answers) {
-      console.log(answers);
-  })
 
-    // const generatedFile = generat
+  function generateHTML(answers) {
+    return `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="title">${answers.title}</h1>
+      <p class="desc">${answers.description}.</p>      
+      <p class="install">${answers.title}.</p>
+      <p class="use">${answers.description}.</p>  
+      <p class="credits">${answers.title}.</p>
+      <p class="license">${answers.description}.</p>  
+      <p class="badges>${answers.title}.</p>
+      <p class="contributing>${answers.description}.</p>  
+      <p class="contributing>${answers.description}.</p>  
+    </div>
+  </div>
+  </body>
+  </html>`;
+  }
+  
+  promptUser()
+  .then(function(answers) {
+    const html = generateHTML(answers);
+
+    return fs.writeFileAsync("index.html", html);
+})
+.then(function() {
+    console.log("Successfully wrote to index.html");
+})
+.catch(function(err) {
+    console.log(err);
+})
+
