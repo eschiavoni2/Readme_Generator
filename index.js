@@ -69,13 +69,13 @@ return inquirer
     <div class="container">
       <h1 class="title">${answers.title}</h1>
       <p class="desc">${answers.description}.</p>      
-      <p class="install">${answers.title}.</p>
-      <p class="use">${answers.description}.</p>  
-      <p class="credits">${answers.title}.</p>
-      <p class="license">${answers.description}.</p>  
-      <p class="badges>${answers.title}.</p>
-      <p class="contributing>${answers.description}.</p>  
-      <p class="contributing>${answers.description}.</p>  
+      <p class="install">${answers.installation}.</p>
+      <p class="use">${answers.usage}.</p>  
+      <p class="credits">${answers.credits}.</p>
+      <p class="license">${answers.license}.</p>  
+      <p class="badges>${answers.badges}.</p>
+      <p class="contributing>${answers.contributing}.</p>  
+      <p class="contributing>${answers.tests}.</p>  
     </div>
   </div>
   </body>
