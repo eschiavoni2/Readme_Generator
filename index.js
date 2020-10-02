@@ -2,7 +2,8 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-inquirer
+function promptUser() {
+return inquirer
   .prompt([
     {
         type:"input",
@@ -49,8 +50,9 @@ inquirer
         type:"input",
         message: "Give explicit instructions on how to run all necessary tests (explain libraries, and supply all necessary commands):",
         name:"tests"
-    }
-  ])
+    },
+  ]);
+}
 
   function generateHTML(answers) {
     return `
@@ -80,10 +82,10 @@ inquirer
   </html>`;
   }
   
-  promptUser()
+  promptUser() 
+     
   .then(function(answers) {
     const html = generateHTML(answers);
-
     return fs.writeFileAsync("index.html", html);
 })
 .then(function() {
@@ -91,5 +93,5 @@ inquirer
 })
 .catch(function(err) {
     console.log(err);
-})
+});
 
