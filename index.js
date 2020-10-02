@@ -79,19 +79,24 @@ return inquirer
     </div>
   </div>
   </body>
-  </html>`;
+  </html> `;
   }
   
   promptUser() 
      
   .then(function(answers) {
     const html = generateHTML(answers);
-    return fs.writeFileAsync("index.html", html);
+    // return fs.writeFile('./utils/generateMarkdown', generateHTML);
 })
 .then(function() {
-    console.log("Successfully wrote to index.html");
+    console.log("Successfully written");
 })
-.catch(function(err) {
-    console.log(err);
+// .catch(function(err) {
+//     console.log(err);
+// });
+fs.writeFile('./utils/generateMarkdown', generateHTML, function (err) {
+    if (err) throw err;
+    console.log("Success!");
 });
+
 
