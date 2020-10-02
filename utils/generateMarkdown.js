@@ -11,8 +11,6 @@ function generateMarkdown(answers) {
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
-  * [Questions](#questions)
-
 
   ## Description
   ${answers.description}
@@ -35,9 +33,6 @@ function generateMarkdown(answers) {
 
   ## Tests
   ${answers.tests}
-
-  ## Questions
-  ${answers.questions}
 
 `;
 }
