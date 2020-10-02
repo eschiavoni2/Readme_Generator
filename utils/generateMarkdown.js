@@ -1,14 +1,18 @@
 // function to generate markdown for README
 function generateMarkdown(answers) {
   return `
-  # Title
   # ${answers.title}
+
+  # Table of Contents
+  * [Description](#description)
 
   ## Description
   ${answers.description}
 
   ### Installation
+  \`\`\`
   ${answers.installation}
+  \`\`\`
 
   ### Usage
   ${answers.usage}
@@ -17,10 +21,7 @@ function generateMarkdown(answers) {
   ${answers.credits}
 
   ##### License
-  ${answers.license}
-
-  ###### Badges
-  ${answers.badges}
+  [![GitHub license](https://img.shields.io/badge/license-${answers.license}-blue.svg)]
 
   ####### Contributing
   ${answers.contributing}

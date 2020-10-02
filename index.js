@@ -26,20 +26,10 @@ return inquirer
         name:"usage"
     },
     {
-        type:"input",
-        message: "List any and all collaborators with links to their GitHub pages",
-        name:"credits"
-    },
-    {
         type:"list",
         message:"Select the license you would like to use.",
         name:"license",
         choices:["MIT", "GPL", "Apache 3.0", "Apache 2.0", "BSD"]
-    },
-    {
-        type:"input",
-        message: "Please enter any badges:",
-        name:"badges"
     },
     {
         type:"input",
@@ -53,50 +43,17 @@ return inquirer
     },
   ]);
 }
-
-  function generateHTML(answers) {
-    return `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="title">${answers.title}</h1>
-      <p class="desc">${answers.description}.</p>      
-      <p class="install">${answers.installation}.</p>
-      <p class="use">${answers.usage}.</p>  
-      <p class="credits">${answers.credits}.</p>
-      <p class="license">${answers.license}.</p>  
-      <p class="badges>${answers.badges}.</p>
-      <p class="contributing>${answers.contributing}.</p>  
-      <p class="contributing>${answers.tests}.</p>  
-    </div>
-  </div>
-  </body>
-  </html> `;
-  }
   
   promptUser() 
      
   .then(function(answers) {
-    const html = generateHTML(answers);
-    // return fs.writeFile('./utils/generateMarkdown', generateHTML);
-})
-.then(function() {
-    console.log("Successfully written");
-})
-// .catch(function(err) {
-//     console.log(err);
-// });
-fs.writeFile('./utils/generateMarkdown', generateHTML, function (err) {
-    if (err) throw err;
-    console.log("Success!");
-});
+    const html = generateMarkdown(answers);
+    fs.writeFile('./utils/generateMarkdown.md', html, function (err) {
+        if (err) throw err;
+        console.log("Success!");
+    });
+    })
+
+
 
 
